@@ -18,7 +18,7 @@
 @implementation AppDelegate {
     ViewController * viewController;
 }
-
+@synthesize becomeActived;
 
 - (BOOL)          application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

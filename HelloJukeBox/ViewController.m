@@ -34,9 +34,11 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [ super viewWillAppear:animated ];
-    //TODO put this for loading webview and cause chaos in control center..
-    /*NSMutableURLRequest *request = [ [ NSMutableURLRequest alloc ] initWithURL:[ NSURL URLWithString:@"https://instagram.com/michaeljackson/" ] ];
-    [ _socialWebView loadRequest:request ];*/
+    //TODO use loseControlSocialUrl to witness chaos in control center..
+    NSString *loseControlSocialUrl = @"https://instagram.com/michaeljackson/";
+    NSString *symphonySocialUrl = @"https://www.youtube.com/watch?v=UPJ1e1Hc1hw";
+    NSMutableURLRequest *request = [ [ NSMutableURLRequest alloc ] initWithURL:[ NSURL URLWithString:symphonySocialUrl ] ];
+    [ _socialWebView loadRequest:request ];
 
 }
 
@@ -71,10 +73,11 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [ super viewDidAppear:animated ];
-    [ [ NSNotificationCenter defaultCenter ] addObserver:self
+    //TODO Symphony goes here, remove remark to play single track 
+    /*[ [ NSNotificationCenter defaultCenter ] addObserver:self
                                                 selector:@selector(enterVideoFullScreen)
                                                     name:UIWindowDidBecomeVisibleNotification
-                                                  object:nil ];
+                                                  object:nil ];*/
 }
 
 - (void)enterVideoFullScreen {

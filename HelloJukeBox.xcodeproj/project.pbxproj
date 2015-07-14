@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0DED5EAB1B54ECD700D49551 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DED5EAA1B54ECD700D49551 /* AVFoundation.framework */; };
+		0DED5EB61B552C0900D49551 /* MPNowPlayingInfoCenter+AvoidWebViewUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DED5EB31B552C0900D49551 /* MPNowPlayingInfoCenter+AvoidWebViewUse.m */; };
+		0DED5EB71B552C0900D49551 /* UIApplication+AvoidWebViewUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DED5EB51B552C0900D49551 /* UIApplication+AvoidWebViewUse.m */; };
+		0DED5EB91B552D2C00D49551 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DED5EB81B552D2C00D49551 /* UIKit.framework */; };
 		1A64512A45BDA487FBBAB913 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A6457B383748782A7CB9479 /* Images.xcassets */; };
 		1A6451608D685EA2295B1621 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A64570FF4D1B01799374AD9 /* AppDelegate.m */; };
 		1A6453E749FF4881860890B6 /* HelloJukeBoxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A64507B725C0A09C1E209D4 /* HelloJukeBoxTests.m */; };
@@ -30,6 +33,11 @@
 
 /* Begin PBXFileReference section */
 		0DED5EAA1B54ECD700D49551 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		0DED5EB21B552C0900D49551 /* MPNowPlayingInfoCenter+AvoidWebViewUse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MPNowPlayingInfoCenter+AvoidWebViewUse.h"; sourceTree = "<group>"; };
+		0DED5EB31B552C0900D49551 /* MPNowPlayingInfoCenter+AvoidWebViewUse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MPNowPlayingInfoCenter+AvoidWebViewUse.m"; sourceTree = "<group>"; };
+		0DED5EB41B552C0900D49551 /* UIApplication+AvoidWebViewUse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+AvoidWebViewUse.h"; sourceTree = "<group>"; };
+		0DED5EB51B552C0900D49551 /* UIApplication+AvoidWebViewUse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+AvoidWebViewUse.m"; sourceTree = "<group>"; };
+		0DED5EB81B552D2C00D49551 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1A64507B725C0A09C1E209D4 /* HelloJukeBoxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloJukeBoxTests.m; sourceTree = "<group>"; };
 		1A6451817B01B2BD946DE1BF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		1A6456B1CF8C570BD6118CF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
@@ -53,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DED5EB91B552D2C00D49551 /* UIKit.framework in Frameworks */,
 				0DED5EAB1B54ECD700D49551 /* AVFoundation.framework in Frameworks */,
 				D97BCF4DC2ACDEF672F20312 /* libPods-HelloJukeBox.a in Frameworks */,
 			);
@@ -101,6 +110,10 @@
 		1A645B3BB851621869DE8576 /* HelloJukeBox */ = {
 			isa = PBXGroup;
 			children = (
+				0DED5EB21B552C0900D49551 /* MPNowPlayingInfoCenter+AvoidWebViewUse.h */,
+				0DED5EB31B552C0900D49551 /* MPNowPlayingInfoCenter+AvoidWebViewUse.m */,
+				0DED5EB41B552C0900D49551 /* UIApplication+AvoidWebViewUse.h */,
+				0DED5EB51B552C0900D49551 /* UIApplication+AvoidWebViewUse.m */,
 				1A6459A0A9A280228C4F8088 /* Supporting Files */,
 				1A6457B383748782A7CB9479 /* Images.xcassets */,
 				1A64576A25B6BFA14C31D571 /* AppDelegate.h */,
@@ -141,6 +154,7 @@
 		E5F5FA67D902597ECCDC949B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0DED5EB81B552D2C00D49551 /* UIKit.framework */,
 				0DED5EAA1B54ECD700D49551 /* AVFoundation.framework */,
 				FC68F678D4D8658D452E99F5 /* libPods-HelloJukeBox.a */,
 			);
@@ -289,6 +303,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A645DDFCFDE84962CC1DC8D /* main.m in Sources */,
+				0DED5EB61B552C0900D49551 /* MPNowPlayingInfoCenter+AvoidWebViewUse.m in Sources */,
+				0DED5EB71B552C0900D49551 /* UIApplication+AvoidWebViewUse.m in Sources */,
 				1A6451608D685EA2295B1621 /* AppDelegate.m in Sources */,
 				1A6454DBE4CF0B23ADD7C591 /* ViewController.m in Sources */,
 			);
