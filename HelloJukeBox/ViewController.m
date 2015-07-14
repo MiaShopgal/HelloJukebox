@@ -34,8 +34,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [ super viewWillAppear:animated ];
-    NSMutableURLRequest *request = [ [ NSMutableURLRequest alloc ] initWithURL:[ NSURL URLWithString:@"https://instagram.com/michaeljackson/" ] ];
-    [ _socialWebView loadRequest:request ];
+    //TODO put this for loading webview and cause chaos in control center..
+    /*NSMutableURLRequest *request = [ [ NSMutableURLRequest alloc ] initWithURL:[ NSURL URLWithString:@"https://instagram.com/michaeljackson/" ] ];
+    [ _socialWebView loadRequest:request ];*/
 
 }
 
