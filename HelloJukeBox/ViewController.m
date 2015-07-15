@@ -34,10 +34,12 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [ super viewWillAppear:animated ];
-    //TODO use loseControlSocialUrl to witness chaos in control center..
-    NSString *loseControlSocialUrl = @"https://instagram.com/michaeljackson/";
-    NSString *symphonySocialUrl = @"https://www.youtube.com/watch?v=UPJ1e1Hc1hw";
-    NSMutableURLRequest *request = [ [ NSMutableURLRequest alloc ] initWithURL:[ NSURL URLWithString:symphonySocialUrl ] ];
+    NSString *loseControlInstagram = @"https://instagram.com/michaeljackson/";
+    NSString *symphonyYoutube = @"https://www.youtube.com/watch?v=UPJ1e1Hc1hw";
+    //NOTE use loseControlInstagram to witness chaos in control center..
+    NSString *socialUrl = loseControlInstagram;
+
+    NSMutableURLRequest *request = [ [ NSMutableURLRequest alloc ] initWithURL:[ NSURL URLWithString:socialUrl ] ];
     [ _socialWebView loadRequest:request ];
 
 }
@@ -73,7 +75,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [ super viewDidAppear:animated ];
-    //TODO Symphony goes here, remove remark to play single track 
+    //NOTE disable Symphony by remove mark below
     /*[ [ NSNotificationCenter defaultCenter ] addObserver:self
                                                 selector:@selector(enterVideoFullScreen)
                                                     name:UIWindowDidBecomeVisibleNotification
