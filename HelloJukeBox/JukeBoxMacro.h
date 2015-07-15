@@ -6,5 +6,11 @@
 #import <Foundation/Foundation.h>
 
 
-@interface JukeBoxMacro : NSObject
+@interface JukeboxMacro : NSObject{
+}
+@property(nonatomic) BOOL settingNowPlayingInfo;
+
+@property(nonatomic) BOOL requestingRemoteControl;
+
++(JukeboxMacro *)sharedSingleton;
 @end
