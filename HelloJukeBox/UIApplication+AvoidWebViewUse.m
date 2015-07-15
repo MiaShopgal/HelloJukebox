@@ -8,7 +8,6 @@
 
 #import "UIApplication+AvoidWebViewUse.h"
 #import <objc/runtime.h>
-#import <UIKit/UIKit.h>
 
 @implementation UIApplication(AvoidWebViewUse)
 

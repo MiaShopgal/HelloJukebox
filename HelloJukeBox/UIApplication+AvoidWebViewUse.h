@@ -8,6 +8,8 @@
 
 
 
+#import <UIKit/UIKit.h>
+
 @interface UIApplication(AvoidWebViewUse)
 
 @end
