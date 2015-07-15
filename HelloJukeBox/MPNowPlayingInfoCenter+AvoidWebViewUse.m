@@ -7,7 +7,7 @@
 //
 
 #import "MPNowPlayingInfoCenter+AvoidWebViewUse.h"
-#import "ViewController.h"
+#import "JukeboxMacro.h"
 #import <objc/runtime.h>
 
 @interface MPMoviePlayerController(){
@@ -16,25 +16,23 @@
 @implementation MPNowPlayingInfoCenter (AvoidWebViewUse)
 
 + (void)load {
-    NSLog(@"class name in load, %@",
-          NSStringFromClass([ self class ]));
     [ self swizzling:[ self class ]
                 from:@selector(setNowPlayingInfo:)
                   to:@selector(avoidWebViewUse_setNowPlayingInfo:) ];
 }
 
 
-- (void)avoidWebViewUse_setNowPlayingInfo:(id)arg1 {
+- (void)avoidWebViewUse_setNowPlayingInfo:(NSDictionary *)playingInfo {
 
     NSLog(@"avoidWebViewUse_setNowPlayingInfo");
-    ViewController *viewController;
-    if(viewController.playSwitch.isOn){
 
-        NSLog(@" youtube playing");
+    if([ JukeboxMacro sharedSingleton ].settingNowPlayingInfo){
+
+        [ self avoidWebViewUse_setNowPlayingInfo:playingInfo ];
 
     } else {
 
-        [ self avoidWebViewUse_setNowPlayingInfo:arg1 ];
+        NSLog(@" UIWebView trying to set now playing info ");
 
     }
 }
@@ -43,8 +41,6 @@
 + (void)swizzling:(Class)aClass
              from:(SEL)before
                to:(SEL)after {
-    NSLog(@"class name in swizzling, %@",
-          NSStringFromClass(aClass));
     SEL originalSelector = before;
     SEL swizzledSelector = after;
 

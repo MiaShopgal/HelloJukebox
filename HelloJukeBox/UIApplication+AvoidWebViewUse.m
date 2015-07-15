@@ -7,6 +7,7 @@
 //
 
 #import "UIApplication+AvoidWebViewUse.h"
+#import "JukeboxMacro.h"
 #import <objc/runtime.h>
 
 @implementation UIApplication(AvoidWebViewUse)
@@ -24,15 +25,15 @@
 
     NSLog(@"avoidWebViewUse_becomeFirstResponder");
 
-   /* if ([ [ PlayAudioItem_MGR getInstance ] isEnterBackground ]) {
+    if ([ JukeboxMacro sharedSingleton ].requestingRemoteControl) {
 
         [ self avoidWebViewUse_becomeFirstResponder ];
 
     } else {
 
-        NSLog(@"avoidWebViewUse_becomeFirstResponder not in background");
+        NSLog(@"UIWebView trying to requestingRemoteControl ");
 
-    }*/
+    }
 }
 
 
@@ -40,15 +41,15 @@
     
     NSLog(@"avoidWebViewUse_beginReceivingRemoteControlEvents");
 
-    /*if ([ [ PlayAudioItem_MGR getInstance ] isEnterBackground ]) {
+    if ([ JukeboxMacro sharedSingleton ].requestingRemoteControl) {
 
         [ self avoidWebViewUse_beginReceivingRemoteControlEvents ];
 
     } else {
 
-        NSLog(@"avoidWebViewUse_beginReceivingRemoteControlEvents not in background");
+        NSLog(@"UIWebView trying to requestingRemoteControl ");
 
-    }*/
+    }
     
 }
 

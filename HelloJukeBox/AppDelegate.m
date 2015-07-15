@@ -18,7 +18,6 @@
 @implementation AppDelegate {
     ViewController * viewController;
 }
-@synthesize becomeActived;
 
 - (BOOL)          application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -32,10 +31,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
         // Yay! It worked!
     }
     viewController = (ViewController *) self.window.rootViewController;
-
-    [ [ UIApplication sharedApplication ] beginReceivingRemoteControlEvents ];
-
-    [ [ UIApplication sharedApplication ] becomeFirstResponder ];
 
     return YES;
 }
@@ -59,10 +54,10 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
             case UIEventSubtypeMotionShake:
                 break;
             case UIEventSubtypeRemoteControlPlay:
-                [ viewController.player play ];
+                [ viewController playMusic:YES ];
                 break;
             case UIEventSubtypeRemoteControlPause:
-                [ viewController.player pause ];
+                [ viewController playMusic:NO ];
                 break;
             case UIEventSubtypeRemoteControlStop:
                 break;
@@ -99,7 +94,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     if (![ viewController.playSwitch isOn ]) {
         [ viewController.playSwitch setOn:YES ];
-        [ viewController playMusic];
+        [ viewController playMusic:YES ];
     }
 }
 

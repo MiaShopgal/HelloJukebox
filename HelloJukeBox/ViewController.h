@@ -19,8 +19,10 @@
 
 @property(nonatomic, strong) AVPlayer *player;
 
+- (void)playMusic:(BOOL)isOn;
+
 - (IBAction)switchChanged:(id)sender;
-- (void)playMusic ;
 @property(nonatomic, weak) IBOutlet UISwitch *playSwitch;
 @property(nonatomic, weak) IBOutlet UIWebView *socialWebView;
+
 @end
