@@ -8,17 +8,16 @@
 
 #import "UIApplication+AvoidWebViewUse.h"
 #import "JukeboxMacro.h"
-#import <objc/runtime.h>
 
-@implementation UIApplication(AvoidWebViewUse)
+@implementation UIApplication (AvoidWebViewUse)
 
 + (void)load {
-    [ self swizzling:[ self class ]
-                from:@selector(beginReceivingRemoteControlEvents)
-                  to:@selector(avoidWebViewUse_beginReceivingRemoteControlEvents) ];
-    [ self swizzling:[ self class ]
-                from:@selector(becomeFirstResponder)
-                  to:@selector(avoidWebViewUse_becomeFirstResponder) ];
+    [ [ JukeboxMacro sharedSingleton ] swizzling:[ self class ]
+                                            from:@selector(beginReceivingRemoteControlEvents)
+                                              to:@selector(avoidWebViewUse_beginReceivingRemoteControlEvents) ];
+    [ [ JukeboxMacro sharedSingleton ] swizzling:[ self class ]
+                                            from:@selector(becomeFirstResponder)
+                                              to:@selector(avoidWebViewUse_becomeFirstResponder) ];
 }
 
 - (void)avoidWebViewUse_becomeFirstResponder {
@@ -31,14 +30,14 @@
 
     } else {
 
-        NSLog(@"UIWebView trying to requestingRemoteControl ");
+        NSLog(@"UIWebView trying to becomeFirstResponder ");
 
     }
 }
 
 
 - (void)avoidWebViewUse_beginReceivingRemoteControlEvents {
-    
+
     NSLog(@"avoidWebViewUse_beginReceivingRemoteControlEvents");
 
     if ([ JukeboxMacro sharedSingleton ].requestingRemoteControl) {
@@ -47,38 +46,11 @@
 
     } else {
 
-        NSLog(@"UIWebView trying to requestingRemoteControl ");
+        NSLog(@"UIWebView trying to beginReceivingRemoteControlEvents ");
 
     }
-    
+
 }
 
-
-+ (void)swizzling:(Class)aClass
-             from:(SEL)before
-               to:(SEL)after {
-    SEL originalSelector = before;
-    SEL swizzledSelector = after;
-    
-    Method originalMethod = class_getInstanceMethod(aClass,
-                                                    originalSelector);
-    Method swizzledMethod = class_getInstanceMethod(aClass,
-                                                    swizzledSelector);
-    
-    BOOL didAddMethod = class_addMethod(aClass,
-                                        originalSelector,
-                                        method_getImplementation(swizzledMethod),
-                                        method_getTypeEncoding(swizzledMethod));
-    
-    if (didAddMethod) {
-        class_replaceMethod(aClass,
-                            swizzledSelector,
-                            method_getImplementation(originalMethod),
-                            method_getTypeEncoding(originalMethod));
-    } else {
-        method_exchangeImplementations(originalMethod,
-                                       swizzledMethod);
-    }
-}
 
 @end

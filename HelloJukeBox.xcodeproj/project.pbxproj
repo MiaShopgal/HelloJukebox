@@ -11,6 +11,8 @@
 		0DED5EB61B552C0900D49551 /* MPNowPlayingInfoCenter+AvoidWebViewUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DED5EB31B552C0900D49551 /* MPNowPlayingInfoCenter+AvoidWebViewUse.m */; };
 		0DED5EB71B552C0900D49551 /* UIApplication+AvoidWebViewUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DED5EB51B552C0900D49551 /* UIApplication+AvoidWebViewUse.m */; };
 		0DED5EB91B552D2C00D49551 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DED5EB81B552D2C00D49551 /* UIKit.framework */; };
+		0DED5EBC1B56574500D49551 /* MPRemoteCommand+AvoidWebViewUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DED5EBB1B56574500D49551 /* MPRemoteCommand+AvoidWebViewUse.m */; };
+		0DED5EBF1B5786F600D49551 /* UIResponder+AvoidWebViewUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DED5EBE1B5786F600D49551 /* UIResponder+AvoidWebViewUse.m */; };
 		1A64512A45BDA487FBBAB913 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A6457B383748782A7CB9479 /* Images.xcassets */; };
 		1A6451608D685EA2295B1621 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A64570FF4D1B01799374AD9 /* AppDelegate.m */; };
 		1A64537D0F2A3AEEFA6212CC /* JukeboxMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6453F01A4A9225C292F7F2 /* JukeboxMacro.m */; };
@@ -39,6 +41,10 @@
 		0DED5EB41B552C0900D49551 /* UIApplication+AvoidWebViewUse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+AvoidWebViewUse.h"; sourceTree = "<group>"; };
 		0DED5EB51B552C0900D49551 /* UIApplication+AvoidWebViewUse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+AvoidWebViewUse.m"; sourceTree = "<group>"; };
 		0DED5EB81B552D2C00D49551 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		0DED5EBA1B56574500D49551 /* MPRemoteCommand+AvoidWebViewUse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MPRemoteCommand+AvoidWebViewUse.h"; sourceTree = "<group>"; };
+		0DED5EBB1B56574500D49551 /* MPRemoteCommand+AvoidWebViewUse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MPRemoteCommand+AvoidWebViewUse.m"; sourceTree = "<group>"; };
+		0DED5EBD1B5786F600D49551 /* UIResponder+AvoidWebViewUse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+AvoidWebViewUse.h"; sourceTree = "<group>"; };
+		0DED5EBE1B5786F600D49551 /* UIResponder+AvoidWebViewUse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+AvoidWebViewUse.m"; sourceTree = "<group>"; };
 		1A64507B725C0A09C1E209D4 /* HelloJukeBoxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloJukeBoxTests.m; sourceTree = "<group>"; };
 		1A6450E85047D5E2238658C2 /* JukeboxMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JukeboxMacro.h; sourceTree = "<group>"; };
 		1A6451817B01B2BD946DE1BF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
@@ -126,6 +132,10 @@
 				1A6451817B01B2BD946DE1BF /* ViewController.m */,
 				1A6453F01A4A9225C292F7F2 /* JukeboxMacro.m */,
 				1A6450E85047D5E2238658C2 /* JukeboxMacro.h */,
+				0DED5EBA1B56574500D49551 /* MPRemoteCommand+AvoidWebViewUse.h */,
+				0DED5EBB1B56574500D49551 /* MPRemoteCommand+AvoidWebViewUse.m */,
+				0DED5EBD1B5786F600D49551 /* UIResponder+AvoidWebViewUse.h */,
+				0DED5EBE1B5786F600D49551 /* UIResponder+AvoidWebViewUse.m */,
 			);
 			path = HelloJukeBox;
 			sourceTree = "<group>";
@@ -311,8 +321,10 @@
 				0DED5EB61B552C0900D49551 /* MPNowPlayingInfoCenter+AvoidWebViewUse.m in Sources */,
 				0DED5EB71B552C0900D49551 /* UIApplication+AvoidWebViewUse.m in Sources */,
 				1A6451608D685EA2295B1621 /* AppDelegate.m in Sources */,
+				0DED5EBF1B5786F600D49551 /* UIResponder+AvoidWebViewUse.m in Sources */,
 				1A6454DBE4CF0B23ADD7C591 /* ViewController.m in Sources */,
 				1A64537D0F2A3AEEFA6212CC /* JukeboxMacro.m in Sources */,
+				0DED5EBC1B56574500D49551 /* MPRemoteCommand+AvoidWebViewUse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

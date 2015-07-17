@@ -12,7 +12,8 @@
 #import "JukeboxMacro.h"
 
 
-@interface ViewController ()
+
+@interface ViewController () <UIWebViewDelegate>
 
 @end
 
@@ -40,6 +41,7 @@
     //NOTE use loseControlInstagram to witness chaos in control center..
     NSString *socialUrl = loseControlInstagram;
 
+    _socialWebView.delegate = self;
     NSMutableURLRequest *request = [ [ NSMutableURLRequest alloc ] initWithURL:[ NSURL URLWithString:socialUrl ] ];
     [ _socialWebView loadRequest:request ];
 
@@ -48,6 +50,42 @@
 - (void)didReceiveMemoryWarning {
     [ super didReceiveMemoryWarning ];
     // Dispose of any resources that can be recreated.
+
+}
+
+- (BOOL)           webView:(UIWebView *)webView
+shouldStartLoadWithRequest:(NSURLRequest *)request
+            navigationType:(UIWebViewNavigationType)navigationType {
+    if (navigationType == UIWebViewNavigationTypeLinkClicked) {
+
+//        NSLog(@"UIWebViewNavigationTypeLinkClicked");
+
+    } else if (navigationType == UIWebViewNavigationTypeOther) {
+
+//        NSLog(@"UIWebViewNavigationTypeOther");
+
+    }
+    return YES;
+}
+
+- (void)viewWillLayoutSubviews {
+    [ super viewWillLayoutSubviews ];
+    NSLog(@"viewWillLayoutSubviews");
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+//    NSLog(@"webViewDidFinishLoad");
+    BOOL isFirst=[ webView isFirstResponder ];
+
+    if ([ webView isFirstResponder ]) {
+
+        NSLog(@" isFirstResponder ");
+
+    }else {
+
+        NSLog(@" is NOT FirstResponder ");
+
+    }
 
 }
 
@@ -72,12 +110,37 @@
         [ player pause ];
 
     }
+    [ _playSwitch setOn:isOn
+               animated:YES ];
+    [ self setControlCenterShowingNowPlayingInfo ];
 
-    [ self setRemoteControl ];
 
 }
 
-- (void)setRemoteControl {
+- (void)registerRemoteControl {
+    MPRemoteCommandCenter *commandCenter = [ MPRemoteCommandCenter sharedCommandCenter ];
+
+    MPRemoteCommand *playCommand = [ commandCenter playCommand ];
+    [ playCommand setEnabled:YES ];
+    [ JukeboxMacro sharedSingleton ].settingRemoteCommandTarget = YES;
+    [ playCommand addTargetWithHandler:^(MPRemoteCommandEvent *event) {
+        [ self playMusic:YES ];
+        return MPRemoteCommandHandlerStatusSuccess;
+    } ];
+    [ JukeboxMacro sharedSingleton ].settingRemoteCommandTarget = NO;
+
+    MPRemoteCommand *pauseCommand = [ commandCenter pauseCommand ];
+    [ JukeboxMacro sharedSingleton ].settingRemoteCommandTarget = YES;
+    [ pauseCommand setEnabled:YES ];
+    [ pauseCommand addTargetWithHandler:^(MPRemoteCommandEvent *event) {
+        [ self playMusic:NO ];
+        return MPRemoteCommandHandlerStatusSuccess;
+
+    } ];
+    [ JukeboxMacro sharedSingleton ].settingRemoteCommandTarget = NO;
+}
+
+- (void)setControlCenterShowingNowPlayingInfo {
 
     NSMutableDictionary *songInfo = [ [ NSMutableDictionary alloc ] init ];
     songInfo[MPMediaItemPropertyArtist] = @"name of Artist";
@@ -88,10 +151,38 @@
     [ [ MPNowPlayingInfoCenter defaultCenter ] setNowPlayingInfo:songInfo ];
     [ JukeboxMacro sharedSingleton ].settingNowPlayingInfo = NO;
 
+/*
+
+
     [ JukeboxMacro sharedSingleton ].requestingRemoteControl = YES;
+
+    BOOL isFirst = [ [ UIApplication sharedApplication ] isFirstResponder ];
+
+    if([ [ UIApplication sharedApplication ] isFirstResponder ]){
+
+        NSLog(@"isFirstResponder");
+
+    } else{
+
+        NSLog(@"is NOT FirstResponder");
+
+    }
     [ [ UIApplication sharedApplication ] beginReceivingRemoteControlEvents ];
-    [ [ UIApplication sharedApplication ] becomeFirstResponder ];
+
+    if([ [ UIApplication sharedApplication ] becomeFirstResponder ]) {
+
+        NSLog(@"success");
+
+    }else{
+
+        NSLog(@"fail");
+
+    }
     [ JukeboxMacro sharedSingleton ].requestingRemoteControl = NO;
+
+
+*/
+
 
 }
 

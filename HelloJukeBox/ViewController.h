@@ -12,6 +12,7 @@
 #import <MediaPlayer/MPNowPlayingInfoCenter.h>
 #import <MediaPlayer/MPMediaItem.h>
 #import <AVFoundation/AVFoundation.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface ViewController : UIViewController {
 }
@@ -20,6 +21,7 @@
 @property(nonatomic, strong) AVPlayer *player;
 
 - (void)playMusic:(BOOL)isOn;
+- (void)registerRemoteControl ;
 
 - (IBAction)switchChanged:(id)sender;
 @property(nonatomic, weak) IBOutlet UISwitch *playSwitch;

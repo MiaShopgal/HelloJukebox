@@ -30,16 +30,64 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     } else {
         // Yay! It worked!
     }
+    /*[[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(nowPlaying:)
+                                                 name:@"AVPlayerItemBecameCurrentNotification"
+                                               object:nil];*/
     viewController = (ViewController *) self.window.rootViewController;
 
     return YES;
 }
 
+- (void)nowPlaying:(NSNotification *)nowPlaying {
+/*AVPlayerItem *playerItem = [notification object];
+    if(playerItem == nil) return;
+    // Break down the AVPlayerItem to get to the path
+    AVURLAsset *asset = (AVURLAsset*)[playerItem asset];
+    NSURL *url = [asset URL];
+    [url absoluteString];*/
+
+
+    AVPlayerItem *playerItem = [nowPlaying object];
+    if(playerItem == nil) return;
+//    // Break down the AVPlayerItem to get to the path
+    AVURLAsset *asset = (AVURLAsset*)[playerItem asset];
+    NSURL *url = [asset URL];
+//    [url absoluteString];
+    /*if ([ url.absoluteString rangeOfString:@"http" ].location != NSNotFound) {
+        NSArray *metadataList = [ playerItem.asset commonMetadata ];
+        for (AVMetadataItem *metaItem in metadataList) {
+            NSLog(@"%@",
+                  [ metaItem commonKey ]);
+        }
+    }*/
+
+    if ([ url.absoluteString rangeOfString:@"http" ].location != NSNotFound) {
+        NSArray *tracks = [ playerItem tracks ];
+        for (AVPlayerItemTrack *playerItemTrack in tracks) {
+            // find video tracks
+            //if ([playerItemTrack.assetTrack hasMediaCharacteristic:AVMediaCharacteristicVisual])
+            if([ playerItemTrack.assetTrack.mediaType isEqual:AVMediaTypeVideo ]){
+                AVMutableAudioMixInputParameters *avMutableAudioMixInputParameters = [ AVMutableAudioMixInputParameters audioMixInputParameters ];
+
+            }else{
+
+            }
+            {
+
+                playerItemTrack.enabled = NO; // disable the track
+
+            }
+        }
+
+    }
+}
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    [viewController registerRemoteControl];
 
 }
 
