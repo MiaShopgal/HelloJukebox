@@ -7,7 +7,7 @@
 //
 
 #import "UIResponder+AvoidWebViewUse.h"
-#import "JukeboxMacro.h"
+#import "JukeBoxMacro.h"
 
 @interface UIResponder () {
 
@@ -16,7 +16,7 @@
 
 @implementation UIResponder (AvoidWebViewUse)
 + (void)load {
-    [ [ JukeboxMacro sharedSingleton ] swizzling:[ self class ]
+    [ [ JukeBoxMacro sharedSingleton ] swizzling:[ self class ]
                                             from:@selector(remoteControlReceivedWithEvent:)
                                               to:@selector(avoidWebViewUse_remoteControlReceivedWithEvent:) ];
 }

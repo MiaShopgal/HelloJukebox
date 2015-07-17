@@ -7,7 +7,7 @@
 //
 
 #import "MPNowPlayingInfoCenter+AvoidWebViewUse.h"
-#import "JukeboxMacro.h"
+#import "JukeBoxMacro.h"
 
 @interface MPMoviePlayerController () {
 }
@@ -16,7 +16,7 @@
 @implementation MPNowPlayingInfoCenter (AvoidWebViewUse)
 
 + (void)load {
-    [ [ JukeboxMacro sharedSingleton ] swizzling:[ self class ]
+    [ [ JukeBoxMacro sharedSingleton ] swizzling:[ self class ]
                                             from:@selector(setNowPlayingInfo:)
                                               to:@selector(avoidWebViewUse_setNowPlayingInfo:) ];
 
@@ -27,7 +27,7 @@
 
 //    NSLog(@"avoidWebViewUse_setNowPlayingInfo");
 
-    if ([ JukeboxMacro sharedSingleton ].settingNowPlayingInfo) {
+    if ([ JukeBoxMacro sharedSingleton ].settingNowPlayingInfo) {
 
         [ self avoidWebViewUse_setNowPlayingInfo:playingInfo ];
 

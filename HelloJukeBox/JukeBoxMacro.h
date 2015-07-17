@@ -4,13 +4,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <objc/runtime.h>
 
-
-@interface JukeboxMacro : NSObject{
+@interface JukeBoxMacro : NSObject{
 }
 @property(nonatomic) BOOL settingNowPlayingInfo;
 
 @property(nonatomic) BOOL requestingRemoteControl;
 
-+(JukeboxMacro *)sharedSingleton;
+@property(nonatomic) BOOL settingRemoteCommandTarget;
+
++(JukeBoxMacro *)sharedSingleton;
+- (void)swizzling:(Class)aClass
+             from:(SEL)before
+               to:(SEL)after;
 @end

@@ -7,15 +7,15 @@
 //
 
 #import "UIApplication+AvoidWebViewUse.h"
-#import "JukeboxMacro.h"
+#import "JukeBoxMacro.h"
 
 @implementation UIApplication (AvoidWebViewUse)
 
 + (void)load {
-    [ [ JukeboxMacro sharedSingleton ] swizzling:[ self class ]
+    [ [ JukeBoxMacro sharedSingleton ] swizzling:[ self class ]
                                             from:@selector(beginReceivingRemoteControlEvents)
                                               to:@selector(avoidWebViewUse_beginReceivingRemoteControlEvents) ];
-    [ [ JukeboxMacro sharedSingleton ] swizzling:[ self class ]
+    [ [ JukeBoxMacro sharedSingleton ] swizzling:[ self class ]
                                             from:@selector(becomeFirstResponder)
                                               to:@selector(avoidWebViewUse_becomeFirstResponder) ];
 }
@@ -24,7 +24,7 @@
 
     NSLog(@"avoidWebViewUse_becomeFirstResponder");
 
-    if ([ JukeboxMacro sharedSingleton ].requestingRemoteControl) {
+    if ([ JukeBoxMacro sharedSingleton ].requestingRemoteControl) {
 
         [ self avoidWebViewUse_becomeFirstResponder ];
 
@@ -40,7 +40,7 @@
 
     NSLog(@"avoidWebViewUse_beginReceivingRemoteControlEvents");
 
-    if ([ JukeboxMacro sharedSingleton ].requestingRemoteControl) {
+    if ([ JukeBoxMacro sharedSingleton ].requestingRemoteControl) {
 
         [ self avoidWebViewUse_beginReceivingRemoteControlEvents ];
 

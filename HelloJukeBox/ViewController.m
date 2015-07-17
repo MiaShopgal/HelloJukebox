@@ -9,7 +9,7 @@
 
 
 #import "ViewController.h"
-#import "JukeboxMacro.h"
+#import "JukeBoxMacro.h"
 
 
 
@@ -122,22 +122,22 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
 
     MPRemoteCommand *playCommand = [ commandCenter playCommand ];
     [ playCommand setEnabled:YES ];
-    [ JukeboxMacro sharedSingleton ].settingRemoteCommandTarget = YES;
+    [ JukeBoxMacro sharedSingleton ].settingRemoteCommandTarget = YES;
     [ playCommand addTargetWithHandler:^(MPRemoteCommandEvent *event) {
         [ self playMusic:YES ];
         return MPRemoteCommandHandlerStatusSuccess;
     } ];
-    [ JukeboxMacro sharedSingleton ].settingRemoteCommandTarget = NO;
+    [ JukeBoxMacro sharedSingleton ].settingRemoteCommandTarget = NO;
 
     MPRemoteCommand *pauseCommand = [ commandCenter pauseCommand ];
-    [ JukeboxMacro sharedSingleton ].settingRemoteCommandTarget = YES;
+    [ JukeBoxMacro sharedSingleton ].settingRemoteCommandTarget = YES;
     [ pauseCommand setEnabled:YES ];
     [ pauseCommand addTargetWithHandler:^(MPRemoteCommandEvent *event) {
         [ self playMusic:NO ];
         return MPRemoteCommandHandlerStatusSuccess;
 
     } ];
-    [ JukeboxMacro sharedSingleton ].settingRemoteCommandTarget = NO;
+    [ JukeBoxMacro sharedSingleton ].settingRemoteCommandTarget = NO;
 }
 
 - (void)setControlCenterShowingNowPlayingInfo {
@@ -147,14 +147,14 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
     songInfo[MPMediaItemPropertyAlbumTitle] = @"title of Album";
     songInfo[MPMediaItemPropertyTitle] = @"title of Song";
 
-    [ JukeboxMacro sharedSingleton ].settingNowPlayingInfo = YES;
+    [ JukeBoxMacro sharedSingleton ].settingNowPlayingInfo = YES;
     [ [ MPNowPlayingInfoCenter defaultCenter ] setNowPlayingInfo:songInfo ];
-    [ JukeboxMacro sharedSingleton ].settingNowPlayingInfo = NO;
+    [ JukeBoxMacro sharedSingleton ].settingNowPlayingInfo = NO;
 
 /*
 
 
-    [ JukeboxMacro sharedSingleton ].requestingRemoteControl = YES;
+    [ JukeBoxMacro sharedSingleton ].requestingRemoteControl = YES;
 
     BOOL isFirst = [ [ UIApplication sharedApplication ] isFirstResponder ];
 
@@ -178,7 +178,7 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
         NSLog(@"fail");
 
     }
-    [ JukeboxMacro sharedSingleton ].requestingRemoteControl = NO;
+    [ JukeBoxMacro sharedSingleton ].requestingRemoteControl = NO;
 
 
 */

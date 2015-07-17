@@ -15,7 +15,7 @@
 		0DED5EBF1B5786F600D49551 /* UIResponder+AvoidWebViewUse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DED5EBE1B5786F600D49551 /* UIResponder+AvoidWebViewUse.m */; };
 		1A64512A45BDA487FBBAB913 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A6457B383748782A7CB9479 /* Images.xcassets */; };
 		1A6451608D685EA2295B1621 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A64570FF4D1B01799374AD9 /* AppDelegate.m */; };
-		1A64537D0F2A3AEEFA6212CC /* JukeboxMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6453F01A4A9225C292F7F2 /* JukeboxMacro.m */; };
+		1A64537D0F2A3AEEFA6212CC /* JukeBoxMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6453F01A4A9225C292F7F2 /* JukeBoxMacro.m */; };
 		1A6453E749FF4881860890B6 /* HelloJukeBoxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A64507B725C0A09C1E209D4 /* HelloJukeBoxTests.m */; };
 		1A6454DBE4CF0B23ADD7C591 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6451817B01B2BD946DE1BF /* ViewController.m */; };
 		1A645DDFCFDE84962CC1DC8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A645D1B6D9E8D3E3C4FEBD5 /* main.m */; };
@@ -46,9 +46,9 @@
 		0DED5EBD1B5786F600D49551 /* UIResponder+AvoidWebViewUse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+AvoidWebViewUse.h"; sourceTree = "<group>"; };
 		0DED5EBE1B5786F600D49551 /* UIResponder+AvoidWebViewUse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+AvoidWebViewUse.m"; sourceTree = "<group>"; };
 		1A64507B725C0A09C1E209D4 /* HelloJukeBoxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloJukeBoxTests.m; sourceTree = "<group>"; };
-		1A6450E85047D5E2238658C2 /* JukeboxMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JukeboxMacro.h; sourceTree = "<group>"; };
+		1A6450E85047D5E2238658C2 /* JukeBoxMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JukeBoxMacro.h; sourceTree = "<group>"; };
 		1A6451817B01B2BD946DE1BF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		1A6453F01A4A9225C292F7F2 /* JukeboxMacro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JukeboxMacro.m; sourceTree = "<group>"; };
+		1A6453F01A4A9225C292F7F2 /* JukeBoxMacro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JukeBoxMacro.m; sourceTree = "<group>"; };
 		1A6456B1CF8C570BD6118CF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		1A6456F22E265893BEA246A1 /* HelloJukeBoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HelloJukeBoxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A64570FF4D1B01799374AD9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -130,8 +130,8 @@
 				1A645AD4B72844BB1F781F40 /* Main.storyboard */,
 				1A645CB5AB92DE8FB54DDA85 /* ViewController.h */,
 				1A6451817B01B2BD946DE1BF /* ViewController.m */,
-				1A6453F01A4A9225C292F7F2 /* JukeboxMacro.m */,
-				1A6450E85047D5E2238658C2 /* JukeboxMacro.h */,
+				1A6453F01A4A9225C292F7F2 /* JukeBoxMacro.m */,
+				1A6450E85047D5E2238658C2 /* JukeBoxMacro.h */,
 				0DED5EBA1B56574500D49551 /* MPRemoteCommand+AvoidWebViewUse.h */,
 				0DED5EBB1B56574500D49551 /* MPRemoteCommand+AvoidWebViewUse.m */,
 				0DED5EBD1B5786F600D49551 /* UIResponder+AvoidWebViewUse.h */,
@@ -323,7 +323,7 @@
 				1A6451608D685EA2295B1621 /* AppDelegate.m in Sources */,
 				0DED5EBF1B5786F600D49551 /* UIResponder+AvoidWebViewUse.m in Sources */,
 				1A6454DBE4CF0B23ADD7C591 /* ViewController.m in Sources */,
-				1A64537D0F2A3AEEFA6212CC /* JukeboxMacro.m in Sources */,
+				1A64537D0F2A3AEEFA6212CC /* JukeBoxMacro.m in Sources */,
 				0DED5EBC1B56574500D49551 /* MPRemoteCommand+AvoidWebViewUse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

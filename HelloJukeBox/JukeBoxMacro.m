@@ -3,18 +3,19 @@
 // Copyright (c) 2015 Miao. All rights reserved.
 //
 
-#import "JukeboxMacro.h"
+
+#import "JukeBoxMacro.h"
 
 
-@implementation JukeboxMacro {
+@implementation JukeBoxMacro {
 
 }
 @synthesize settingNowPlayingInfo;
 
 @synthesize requestingRemoteControl;
 
-+ (JukeboxMacro *)sharedSingleton {
-    static JukeboxMacro *_sharedSingleton = nil;
++ (JukeBoxMacro *)sharedSingleton {
+    static JukeBoxMacro *_sharedSingleton = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken,
                   ^{
@@ -32,5 +33,30 @@
 
     return self;
 }
+- (void)swizzling:(Class)aClass
+             from:(SEL)before
+               to:(SEL)after {
+    SEL originalSelector = before;
+    SEL swizzledSelector = after;
 
+    Method originalMethod = class_getInstanceMethod(aClass,
+                                                    originalSelector);
+    Method swizzledMethod = class_getInstanceMethod(aClass,
+                                                    swizzledSelector);
+
+    BOOL didAddMethod = class_addMethod(aClass,
+                                        originalSelector,
+                                        method_getImplementation(swizzledMethod),
+                                        method_getTypeEncoding(swizzledMethod));
+
+    if (didAddMethod) {
+        class_replaceMethod(aClass,
+                            swizzledSelector,
+                            method_getImplementation(originalMethod),
+                            method_getTypeEncoding(originalMethod));
+    } else {
+        method_exchangeImplementations(originalMethod,
+                                       swizzledMethod);
+    }
+}
 @end

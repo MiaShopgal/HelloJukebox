@@ -7,7 +7,7 @@
 //
 
 #import "MPRemoteCommand+AvoidWebViewUse.h"
-#import "JukeboxMacro.h"
+#import "JukeBoxMacro.h"
 
 @interface MPRemoteCommand () {
 
@@ -16,10 +16,10 @@
 
 @implementation MPRemoteCommand (AvoidWebViewUse)
 + (void)load {
-    [ [ JukeboxMacro sharedSingleton ] swizzling:[ self class ]
+    [ [ JukeBoxMacro sharedSingleton ] swizzling:[ self class ]
                                             from:@selector(addTargetWithHandler:)
                                               to:@selector(avoidWebViewUse_addTargetWithHandler:) ];
-    /*[ [ JukeboxMacro sharedSingleton ] swizzling:[ self class ]
+    /*[ [ JukeBoxMacro sharedSingleton ] swizzling:[ self class ]
                                             from:@selector(setEnable:)
                                               to:@selector(avoidWebViewUse_setEnable:) ];*/
 }
@@ -30,7 +30,7 @@
 
 - (void)avoidWebViewUse_addTargetWithHandler:(id)avoidWebViewUse_addTargetWithHandler {
     NSLog(@"avoidWebViewUse_addTargetWithHandler");
-    if ([ [ JukeboxMacro sharedSingleton ] settingRemoteCommandTarget ]) {
+    if ([ [ JukeBoxMacro sharedSingleton ] settingRemoteCommandTarget ]) {
         [ self avoidWebViewUse_addTargetWithHandler:avoidWebViewUse_addTargetWithHandler ];
     }else {
         NSLog(@" UIWebView is trying to addTargetWithHandler");
