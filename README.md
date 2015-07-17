@@ -1,4 +1,4 @@
-# HelloJukeBox
+# HelloJukebox
 
 ## configuration instructions
 I suppose all you need is open this project in Xcode.
